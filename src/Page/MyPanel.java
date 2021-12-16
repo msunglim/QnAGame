@@ -23,11 +23,11 @@ public class MyPanel extends JPanel {
 
 	}
 
-	public void PlayerPanelRefresh() {
-		pp.refresh();
+	public void PlayerPanelRefresh(int a, int b) {
+		pp.refresh(a,b);
 	}
-	public void PlayerPanelIncrease() {
-		pp.increasePoint();
+	public void PlayerPanelPointRefresh() {
+		pp.refreshPoint();
 	}
 	public void moveToSelectPanel() {
 		//removeAllPanel();
@@ -38,7 +38,7 @@ public class MyPanel extends JPanel {
 			add(pp, BorderLayout.NORTH);
 		}else {
 			remove(getComponent(1));
-			PlayerPanelRefresh();
+		
 		}
 		
 		if (slp == null) {

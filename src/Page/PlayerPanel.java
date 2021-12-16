@@ -27,27 +27,45 @@ public class PlayerPanel extends LinearLayoutPanel {
 		playerPanel[GameManager.getCurrentPlayerIndex()].setBackground(Color.pink);
 		playerPanel[GameManager.getCurrentPlayerIndex()].setBorder(BorderFactory.createLineBorder(Color.red));
 	}
-	public void refresh() {
-		int prev = GameManager.getPreviousPlayerIndex();
-
-		playerPanel[prev].setBackground(Color.white);
-		playerPanel[prev].setBorder(BorderFactory.createLineBorder(Color.black));
+	
+	
+	//a: old index
+	//b: new index
+	public void refresh(int a , int b) {
+//		int prev = GameManager.getPreviousPlayerIndex();
+//		System.out.println("prev"+ prev);
+//		playerPanel[prev].setBackground(Color.white);
+//		playerPanel[prev].setBorder(BorderFactory.createLineBorder(Color.black));
+//		
+//		
+		//int curr =GameManager.getCurrentPlayerIndex();
 		
-		
-		int curr =GameManager.getCurrentPlayerIndex();
-
-		playerPanel[curr].setBackground(Color.pink);
-		playerPanel[curr].setBorder(BorderFactory.createLineBorder(Color.red));
-		
+		playerPanel[a].setBackground(Color.white);
+		playerPanel[a].setBorder(BorderFactory.createLineBorder(Color.black));
+//		
+		//int next =GameManager.getNextPlayerIndex();
+		playerPanel[b].setBackground(Color.pink);
+		playerPanel[b].setBorder(BorderFactory.createLineBorder(Color.red));
+//		
 		
 	}
-	public void increasePoint() {
-		int prev = GameManager.getPreviousPlayerIndex();
-
-		JPanel p = (JPanel) playerPanel[prev].getComponent(1);
-		JLabel l = (JLabel) p.getComponent(0);
-		l.setText(""+GameManager.getPlayerList()[prev].getPoint());
+	public void refreshPoint() {
+//		int prev = GameManager.getPreviousPlayerIndex();
+//
+//		JPanel p = (JPanel) playerPanel[prev].getComponent(1);
+//		JLabel l = (JLabel) p.getComponent(0);
+//		l.setText(""+GameManager.getPlayerList()[prev].getPoint());
+//		
 		
+		int curr = GameManager.getCurrentPlayerIndex();
+
+		JPanel p2 = (JPanel) playerPanel[curr].getComponent(1);
+		JLabel l2 = (JLabel) p2.getComponent(0);
+		l2.setText(""+GameManager.getPlayerList()[curr].getPoint());
+		
+
+		playerPanel[curr].setBackground(Color.white);
+		playerPanel[curr].setBorder(BorderFactory.createLineBorder(Color.black));
 		
 	}
 }

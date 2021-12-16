@@ -43,23 +43,25 @@ public class GameManager {
 			return playerList[0];
 		}
 	}
-	public static void nextPlayer() {
-	if(currentPlayerIndex+1 < playerList.length) {
+	public static void setNextPlayer(int n) {
+		if(n+1 < playerList.length) {
 			
-			 currentPlayerIndex++;
+			 currentPlayerIndex=  n+1;
 		}else {
 			 currentPlayerIndex=0;
 		}
+		System.out.println("n"+n+", currentPlayerindex: "+currentPlayerIndex);
 	}
 	public static int getNextPlayerIndex() {
 		if(currentPlayerIndex+1 < playerList.length) {
 			
-			return currentPlayerIndex++;
+			return currentPlayerIndex+1;
 		}else {
 			return 0;
 		}
 	}
 	public static int getPreviousPlayerIndex() {
+		System.out.println("current "+currentPlayerIndex);
 		if(currentPlayerIndex -1 <0) {
 			return playerList.length-1;
 		}else {
