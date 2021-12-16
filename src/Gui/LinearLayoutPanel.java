@@ -1,3 +1,5 @@
+package Gui;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -7,7 +9,7 @@ import javax.swing.JPanel;
 
 public class LinearLayoutPanel extends JPanel{
 	private int w,h;
-	LinearLayoutPanel(int w, int h){
+	public LinearLayoutPanel(int w, int h){
 		this.w = w;
 		this.h = h;
 
@@ -18,6 +20,13 @@ public class LinearLayoutPanel extends JPanel{
 	public void addAsRow(Component c) {
 		JPanel p =  new JPanel();
 		p.setPreferredSize(new Dimension(w,30));
+		p.setBorder(BorderFactory.createLineBorder(Color.black));
+		p.add(c);
+		add(p);
+	}
+	public void addAsRow(Component c, int h) {
+		JPanel p =  new JPanel();
+		p.setPreferredSize(new Dimension(w,h));
 		p.setBorder(BorderFactory.createLineBorder(Color.black));
 		p.add(c);
 		add(p);

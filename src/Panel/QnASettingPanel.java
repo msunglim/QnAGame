@@ -1,11 +1,15 @@
+package Panel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Gui.GameManager;
+import Gui.LinearLayoutPanel;
+
 public class QnASettingPanel extends JPanel {
 	JTextField [] questionList = new JTextField[13];
 	JTextField [] answerList = new JTextField[13];
-	QnASettingPanel() {
+	public QnASettingPanel() {
 		LinearLayoutPanel qp = new LinearLayoutPanel(750,500);
 		LinearLayoutPanel ap = new LinearLayoutPanel(750,500);
 		
@@ -31,18 +35,21 @@ public class QnASettingPanel extends JPanel {
 		add(ap);
 	}
 	public void setGMQuestionList() {
-		String [] list = new String[13];
+		String [] list = new String[getNumberOfQuestion()];
+		String [] list2 = new String[list.length];
 		int count = 0;
-		while(count <13) {
+	
+		while(count <list.length) {
 			String s = questionList[count].getText();
 			list[count] = s;
 			
+			list2[count] = answerList[count].getText();
 			if(s.length()==0) {
 				break;
 			}
 			count++;
 		}
-		GameManager.setQuestionList(list);
+		GameManager.setQuestionAnswerList(list,list2);
 	}
 	public int getNumberOfQuestion() {
 		

@@ -1,5 +1,7 @@
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+
+import Page.MyPanel;
 public class MyFrame extends JFrame {
 	MyFrame() {
 		super();
